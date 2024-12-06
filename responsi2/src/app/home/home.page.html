@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Informasi Pahlawan</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/add-pahlawan" class="custom-add-book-button">
+        <ion-icon name="book-outline" slot="start"></ion-icon>
+        add informasi
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let book of books" [routerLink]="['/pahlawan-detail', book.id]" lines="full">
+      <ion-label>
+        <h2>{{ book.title }}</h2>
+        <p>{{ book.description }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<style>
+.custom-add-book-button {
+  --background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  --background-activated: linear-gradient(135deg, #5a0e9e 0%, #1c5eb8 100%);
+  --color: white;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  font-size: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-add-book-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.custom-add-book-button:focus {
+  box-shadow: 0 0 0 3px rgba(98, 0, 238, 0.3);
+}
+
+.custom-add-book-button ion-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+</style>
